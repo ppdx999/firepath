@@ -1,0 +1,10 @@
+# Collection Name      Collection Structure
+restaurant             /restaurant
+review                 /restaurant/reviews
+order                  /restaurant/orders
+payment                /restaurant/payments
+
+group                  /group
+user                   /group/user
+folder                 /group/user/...folder
+file                   /group/usr/...folder/file
