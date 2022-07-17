@@ -131,7 +131,6 @@ make_notes_js() {
 * https://github.com/ppdx999/firestore
 */
 
-
 EOF
 }
 
@@ -336,7 +335,7 @@ make_col_args_java() {
 # $1=structure
 make_doc_args_java() {
     args=''
-    for arg in $(printf '%s' "${1}" | sed -e 's;/[^/]*$;;' | tr '/' ' '); do
+    for arg in $(printf '%s' "${1}" | tr '/' ' '); do
         case "$arg" in
         ...*)
             args="${args}, String[] ${arg#...}Ids"
@@ -357,7 +356,7 @@ make_col_path_java() {
         case "$str" in
         ...*)
             str=${str#...}
-            col_path="${col_path}makeRecursivePath(${str}, ${str}Ids) + "
+            col_path="${col_path}makeRecursivePath(\"${str}\", ${str}Ids) + "
             ;;
         *)
             col_path="${col_path}\"/${str}/\" + ${str}Id + "
@@ -374,7 +373,7 @@ make_doc_path_java() {
         case "$str" in
         ...*)
             str=${str#...}
-            doc_path="${doc_path}makeRecursivePath(${str}, ${str}Ids) + "
+            doc_path="${doc_path}makeRecursivePath(\"${str}\", ${str}Ids) + "
             ;;
         *)
             doc_path="${doc_path}\"/${str}/\" + ${str}Id + "
