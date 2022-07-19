@@ -21,7 +21,7 @@ print_usage_and_exit() {
         
 	Options 
         -o <file>                           |--output=<file>
-        -l <js|ts>                          |--language=<js|ts>
+        -l <js|ts|java|kt>                  |--language=<js|ts|java|kt>
         -a <language-specific-parameter>    |--additional-parameters==<language-specific-parameter>
         
 	Version
