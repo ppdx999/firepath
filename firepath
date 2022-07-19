@@ -273,13 +273,15 @@ make_notes_java() {
 # $1=input_file
 # $2=additional_parameters
 make_pre_func_java() {
-
     package=''
+    classname='Firepath'
     while read -r key value; do
-        echo "$key" "$value" 1>&2
         case "$key" in
         package)
             package="package $value;"
+            ;;
+        classname)
+            classname="$value"
             ;;
         esac
     done <<EOF
@@ -289,7 +291,7 @@ EOF
     cat <<EOF
 $package
 
-public class Firepath {
+public class $classname {
 
   private static String makeRecursivePath(String name, String[] ids) {
     StringBuffer path = new StringBuffer();

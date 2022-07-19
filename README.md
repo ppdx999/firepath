@@ -239,7 +239,8 @@ DESCRIPTION
           Specify options like, 'key1=value1,key2=value2,key3=value3'
 
           java:
-            package=your_favoite_package_name
+            package=my.package
+            classname=MyFirepath
 
           javascript/typescript:
             no additioanl option is supported
