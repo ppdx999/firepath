@@ -3,7 +3,6 @@ restaurant             /restaurant
 review                 /restaurant/reviews
 order                  /restaurant/orders
 payment                /restaurant/payments
-
 group                  /group
 user                   /group/user
 folder                 /group/user/...folder
