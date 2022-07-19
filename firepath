@@ -97,11 +97,6 @@ case "$language" in js | ts | java) ;; *) error_exit 1 "Invalid --language optio
 # TODO: 標準出力を/dev/stdoutと決め打つことが互換性に与える影響を調べる
 case "$output_file" in '') output_file='/dev/stdout' ;; esac
 
-echo "input_file = $input_file"
-echo "output_file = $output_file"
-echo "language = $language"
-echo "additional_parameters = $additional_parameters"
-
 ######################################################################
 # Core Functions
 ######################################################################
