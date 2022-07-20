@@ -46,14 +46,6 @@ cat <<EOF >$tmp-ans
 /restaurant/restaurantId/orders/ordersId
 /restaurant/restaurantId/payments
 /restaurant/restaurantId/payments/paymentsId
-/group
-/group/groupId
-/group/groupId/user
-/group/groupId/user/userid
-/group/groupId/user/userId/folder
-/group/groupId/user/userId/folder/folder1/folder/folder2/folder/folder3
-/group/groupId/usr/usrId/folder/folder1/folder/folder2/folder/folder3/file
-/group/groupId/usr/usrId/folder/folder1/folder/folder2/folder/folder3/file/fileId
 EOF
 
 node test/javascript/test.js >$tmp-out

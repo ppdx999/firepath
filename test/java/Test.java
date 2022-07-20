@@ -11,13 +11,5 @@ public class Test {
         System.out.println(Firepath.orderDocumentPath("restaurantId", "ordersId"));
         System.out.println(Firepath.paymentCollectionPath("restaurantId"));
         System.out.println(Firepath.paymentDocumentPath("restaurantId", "paymentsId"));
-        System.out.println(Firepath.groupCollectionPath());
-        System.out.println(Firepath.groupDocumentPath("groupId"));
-        System.out.println(Firepath.userCollectionPath("groupId"));
-        System.out.println(Firepath.userDocumentPath("groupId", "userid"));
-        System.out.println(Firepath.folderCollectionPath("groupId", "userId"));
-        System.out.println(Firepath.folderDocumentPath("groupId", "userId", new String[]{"folder1", "folder2", "folder3"}));
-        System.out.println(Firepath.fileCollectionPath("groupId", "usrId", new String[]{"folder1", "folder2", "folder3"}));
-        System.out.println(Firepath.fileDocumentPath( "groupId", "usrId", new String[]{"folder1", "folder2", "folder3"}, "fileId"));
     }
 }

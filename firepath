@@ -133,14 +133,7 @@ EOF
 make_col_args_js() {
     args=''
     for arg in $(printf '%s' "${1}" | sed -e 's;/[^/]*$;;' | tr '/' ' '); do
-        case "$arg" in
-        ...*)
-            args="${args}, ${arg#...}Ids"
-            ;;
-        *)
-            args="${args}, ${arg}Id"
-            ;;
-        esac
+        args="${args}, ${arg}Id"
     done
     printf '%s' "${args#, }"
 }
@@ -149,14 +142,7 @@ make_col_args_js() {
 make_doc_args_js() {
     args=''
     for arg in $(printf '%s' "$1" | tr '/' ' '); do
-        case "$arg" in
-        ...*)
-            args="${args}, ${arg#...}Ids"
-            ;;
-        *)
-            args="${args}, ${arg}Id"
-            ;;
-        esac
+        args="${args}, ${arg}Id"
     done
     printf '%s' "${args#, }"
 }
@@ -166,15 +152,7 @@ make_col_path_js() {
     col_path=''
     last=$(printf '%s' "$1" | sed -e 's;^.*/;;' -e 's;^\.\.\.;;')
     for str in $(printf '%s' "$1" | sed -e 's;/[^/]*$;;' | tr '/' ' '); do
-        case "$str" in
-        ...*)
-            str=${str#...}
-            col_path="${col_path}${str}Ids.map((id) => \"/${str}/\" + id).join('') + "
-            ;;
-        *)
-            col_path="${col_path}\"/${str}/\" + ${str}Id + "
-            ;;
-        esac
+        col_path="${col_path}\"/${str}/\" + ${str}Id + "
     done
     printf '%s' "${col_path} \"/${last}\""
 }
@@ -183,15 +161,7 @@ make_col_path_js() {
 make_doc_path_js() {
     doc_path=''
     for str in $(printf '%s' "$1" | tr '/' ' '); do
-        case "$str" in
-        ...*)
-            str=${str#...}
-            doc_path="${doc_path}${str}Ids.map((id) => \"/${str}/\" + id ).join('') + "
-            ;;
-        *)
-            doc_path="${doc_path}\"/${str}/\" + ${str}Id + "
-            ;;
-        esac
+        doc_path="${doc_path}\"/${str}/\" + ${str}Id + "
     done
     printf '%s' "${doc_path% + }"
 }
@@ -216,14 +186,7 @@ make_notes_ts() {
 make_col_args_ts() {
     args=''
     for arg in $(printf '%s' "${1}" | sed -e 's;/[^/]*$;;' | tr '/' ' '); do
-        case "$arg" in
-        ...*)
-            args="${args}, ${arg#...}Ids: string[]"
-            ;;
-        *)
-            args="${args}, ${arg}Id: string"
-            ;;
-        esac
+        args="${args}, ${arg}Id: string"
     done
     printf '%s' "${args#, }"
 }
@@ -232,14 +195,7 @@ make_col_args_ts() {
 make_doc_args_ts() {
     args=''
     for arg in $(printf '%s' "$1" | tr '/' ' '); do
-        case "$arg" in
-        ...*)
-            args="${args}, ${arg#...}Ids: string[]"
-            ;;
-        *)
-            args="${args}, ${arg}Id: string"
-            ;;
-        esac
+        args="${args}, ${arg}Id: string"
     done
     printf '%s' "${args#, }"
 }
@@ -293,14 +249,6 @@ $package
 
 public class $classname {
 
-  private static String makeRecursivePath(String name, String[] ids) {
-    StringBuffer path = new StringBuffer();
-    for(String id : ids){
-        path.append("/" + name + "/" + id );
-    }
-    return path.toString();
-  }
-
 EOF
 }
 
@@ -317,14 +265,7 @@ EOF
 make_col_args_java() {
     args=''
     for arg in $(printf '%s' "${1}" | sed -e 's;/[^/]*$;;' | tr '/' ' '); do
-        case "$arg" in
-        ...*)
-            args="${args}, String[] ${arg#...}Ids"
-            ;;
-        *)
-            args="${args}, String ${arg}Id"
-            ;;
-        esac
+        args="${args}, String ${arg}Id"
     done
     printf '%s' "${args#, }"
 }
@@ -333,14 +274,7 @@ make_col_args_java() {
 make_doc_args_java() {
     args=''
     for arg in $(printf '%s' "${1}" | tr '/' ' '); do
-        case "$arg" in
-        ...*)
-            args="${args}, String[] ${arg#...}Ids"
-            ;;
-        *)
-            args="${args}, String ${arg}Id"
-            ;;
-        esac
+        args="${args}, String ${arg}Id"
     done
     printf '%s' "${args#, }"
 }
@@ -350,15 +284,7 @@ make_col_path_java() {
     col_path=''
     last=$(printf '%s' "$1" | sed -e 's;^.*/;;' -e 's;^\.\.\.;;')
     for str in $(printf '%s' "$1" | sed -e 's;/[^/]*$;;' | tr '/' ' '); do
-        case "$str" in
-        ...*)
-            str=${str#...}
-            col_path="${col_path}makeRecursivePath(\"${str}\", ${str}Ids) + "
-            ;;
-        *)
-            col_path="${col_path}\"/${str}/\" + ${str}Id + "
-            ;;
-        esac
+        col_path="${col_path}\"/${str}/\" + ${str}Id + "
     done
     printf '%s' "${col_path} \"/${last}\""
 }
@@ -367,15 +293,7 @@ make_col_path_java() {
 make_doc_path_java() {
     doc_path=''
     for str in $(printf '%s' "$1" | tr '/' ' '); do
-        case "$str" in
-        ...*)
-            str=${str#...}
-            doc_path="${doc_path}makeRecursivePath(\"${str}\", ${str}Ids) + "
-            ;;
-        *)
-            doc_path="${doc_path}\"/${str}/\" + ${str}Id + "
-            ;;
-        esac
+        doc_path="${doc_path}\"/${str}/\" + ${str}Id + "
     done
     printf '%s' "${doc_path% + }"
 }
