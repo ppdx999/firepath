@@ -93,14 +93,6 @@ package test.java;
 
 public class Firepath {
 
-  private static String makeRecursivePath(String name, String[] ids) {
-    StringBuffer path = new StringBuffer();
-    for(String id : ids){
-        path.append("/" + name + "/" + id );
-    }
-    return path.toString();
-  }
-
   public static String restaurantCollectionPath() {
     return  "/restaurant";
   }
