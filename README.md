@@ -89,8 +89,6 @@ export function paymentDocumentPath(restaurantId, paymentsId) {
 * https://github.com/ppdx999/firestore
 */
 
-package test.java;
-
 public class Firepath {
 
   public static String restaurantCollectionPath() {
